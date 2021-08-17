@@ -2,10 +2,10 @@
 @model CopiiClinica.Pages.Prezente.DetailsModel
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalii";
 }
 
-<h1>Details</h1>
+<h1>Detalii</h1>
 
 <div>
     <h4>Prezenta</h4>
@@ -18,7 +18,6 @@
             @Html.DisplayFor(model => model.Prezenta.Data)
         </dd>
         <dt class="col-sm-2">
-            @*@Html.DisplayNameFor(model => model.Copil.Nume)*@
             <label>Nume Student</label>
         </dt>
         <dd class="col-sm-10">
@@ -35,6 +34,7 @@
         @foreach (var notita in Model.ListaNotite) {
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => notita.Interval)
+                <a asp-page="./EditNote" asp-route-id="@notita.ID">Modifică</a>
             </dt>
             <dd class="col-sm-10">
                 @Html.DisplayFor(model => notita.Interval)
@@ -42,7 +42,7 @@
             <dt class="col-sm-2">
                 @Html.DisplayNameFor(model => notita.Mesaj)
             </dt>
-            <dd class="col-sm-10">
+            <dd class="col-sm-10 text-break">
                 @Html.DisplayFor(model => notita.Mesaj)
             </dd>
         }

@@ -2,34 +2,21 @@
 @model CopiiClinica.Pages.Prezente.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Prezențe";
 }
 
-<h1>Index</h1>
+<h1>Prezențe</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Adaugă o prezență</a>
 </p>
 <table class="table">
     <thead>
-        @*<tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Prezenta[0].Data)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Prezenta[0].Copil.Nume)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Prezenta[0].Prezent)
-            </th>
-            <th></th>
-        </tr>*@
         <tr>
             <th>
                 <label asp-for="ListaPrezente.FirstOrDefault().Data"></label>
             </th>
             <th>
-                @*<label asp-for="ListaPrezente.FirstOrDefault().Copil.Nume"></label>*@
                 <label>Nume Student</label>
             </th>
             <th>

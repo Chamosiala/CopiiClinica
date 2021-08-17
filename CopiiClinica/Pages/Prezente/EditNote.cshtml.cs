@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,24 +9,24 @@ using Microsoft.EntityFrameworkCore;
 using CopiiClinica.Models;
 
 namespace CopiiClinica.Pages.Prezente {
-  public class EditModel : PageModel {
+  public class EditNoteModel : PageModel {
     private readonly CopiiClinica.Models.ApplicationDbContext _context;
 
-    public EditModel(CopiiClinica.Models.ApplicationDbContext context) {
+    public EditNoteModel(CopiiClinica.Models.ApplicationDbContext context) {
       _context = context;
     }
 
     [BindProperty]
-    public Prezenta Prezenta { get; set; }
+    public Notita Notita { get; set; }
 
     public async Task<IActionResult> OnGetAsync(int? id) {
       if (id == null) {
         return NotFound();
       }
 
-      Prezenta = await _context.Prezente.FirstOrDefaultAsync(m => m.ID == id);
+      Notita = await _context.Notite.FirstOrDefaultAsync(m => m.ID == id);
 
-      if (Prezenta == null) {
+      if (Notita == null) {
         return NotFound();
       }
       return Page();
@@ -37,12 +37,12 @@ namespace CopiiClinica.Pages.Prezente {
         return Page();
       }
 
-      _context.Attach(Prezenta).State = EntityState.Modified;
+      _context.Attach(Notita).State = EntityState.Modified;
 
       try {
         await _context.SaveChangesAsync();
       } catch (DbUpdateConcurrencyException) {
-        if (!PrezentaExists(Prezenta.ID)) {
+        if (!PrezentaExists(Notita.ID)) {
           return NotFound();
         } else {
           throw;
