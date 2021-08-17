@@ -49,7 +49,7 @@ namespace CopiiClinica.Pages.Prezente {
         }
       }
 
-      return RedirectToPage("./Index");
+      return RedirectToPage($"./Details", new { id = Notita.PrezentaID });
     }
 
     private bool PrezentaExists(int id) {
