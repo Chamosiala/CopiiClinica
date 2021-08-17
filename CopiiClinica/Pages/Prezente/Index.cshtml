@@ -1,0 +1,68 @@
+﻿@page
+@model CopiiClinica.Pages.Prezente.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        @*<tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Prezenta[0].Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prezenta[0].Copil.Nume)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prezenta[0].Prezent)
+            </th>
+            <th></th>
+        </tr>*@
+        <tr>
+            <th>
+                <label asp-for="ListaPrezente.FirstOrDefault().Data"></label>
+            </th>
+            <th>
+                @*<label asp-for="ListaPrezente.FirstOrDefault().Copil.Nume"></label>*@
+                <label>Nume Student</label>
+            </th>
+            <th>
+                <label asp-for="ListaPrezente.FirstOrDefault().Prezent"></label>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var prezenta in Model.ListaPrezente) {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => prezenta.Data)
+            </td>
+            <td>
+                @foreach (var copil in Model.ListaCopii) {
+                    if (copil.ID == prezenta.CopilID) {
+                        @Html.DisplayFor(model => copil.Nume)
+                        <label></label>
+                        @Html.DisplayFor(model => copil.Prenume)
+                    }
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(model => prezenta.Prezent)
+            </td>
+            <td>
+                <a asp-page="./NewNote" asp-route-id="@prezenta.ID">Adaugă o notiță</a> |
+                <a asp-page="./Edit" asp-route-id="@prezenta.ID">Editează</a> |
+                <a asp-page="./Details" asp-route-id="@prezenta.ID">Detalii</a> |
+                <a asp-page="./Delete" asp-route-id="@prezenta.ID">Șterge</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
