@@ -12,24 +12,11 @@
 </p>
 <table class="table">
     <thead>
-        @*<tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Prezenta[0].Data)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Prezenta[0].Copil.Nume)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Prezenta[0].Prezent)
-            </th>
-            <th></th>
-        </tr>*@
         <tr>
             <th>
                 <label asp-for="ListaPrezente.FirstOrDefault().Data"></label>
             </th>
             <th>
-                @*<label asp-for="ListaPrezente.FirstOrDefault().Copil.Nume"></label>*@
                 <label>Nume Student</label>
             </th>
             <th>
