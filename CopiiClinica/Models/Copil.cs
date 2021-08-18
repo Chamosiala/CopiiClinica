@@ -15,5 +15,9 @@ namespace CopiiClinica.Models {
     public string Prenume { get; set; }
 
     public int Varsta { get; set; }
+
+    public override string ToString() {
+      return $"{Nume} {Prenume}";
+    }
   }
 }
