@@ -20,15 +20,7 @@ namespace CopiiClinica.Pages.Prezente {
     public IList<Copil> ListaCopiiFiltrati { get; set; }
 
     public async Task OnGetAsync() {
-      ListaPrezente = await _context.Prezente.ToListAsync();
-      ListaCopii = await _context.Copii.ToListAsync();
-      
-      
-      //if (ListaPrezente.Count > 0)
-      //  foreach (Prezenta prezenta in ListaPrezente) {
-      //    Copil CopilFiltrat = await _context.Copii.FirstOrDefaultAsync(x => x.ID == prezenta.CopilID);
-      //    ListaCopiiFiltrati.Add(CopilFiltrat);
-      //  }
+      ListaPrezente = await _context.Prezente.Include(a => a.Copil).ToListAsync();
     }
   }
 }

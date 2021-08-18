@@ -32,13 +32,9 @@
                 @Html.DisplayFor(model => prezenta.Data)
             </td>
             <td>
-                @foreach (var copil in Model.ListaCopii) {
-                    if (copil.ID == prezenta.CopilID) {
-                        @Html.DisplayFor(model => copil.Nume)
-                        <label></label>
-                        @Html.DisplayFor(model => copil.Prenume)
-                    }
-                }
+                @Html.DisplayFor(model => prezenta.Copil.Nume)
+                <label></label>
+                @Html.DisplayFor(model => prezenta.Copil.Prenume)
             </td>
             <td>
                 @Html.DisplayFor(model => prezenta.Prezent)
